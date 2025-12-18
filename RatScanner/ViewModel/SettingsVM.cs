@@ -1,4 +1,5 @@
-﻿using RatStash;
+﻿using RatScanner.Localization;
+using RatStash;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ internal class SettingsVM : INotifyPropertyChanged {
 
 	public string ToolTipDuration { get; set; }
 	public int ToolTipMilli { get; set; }
+	public UiLanguage UiLanguage { get; set; }
 
 	public bool ShowName { get; set; }
 	public bool ShowAvgDayPrice { get; set; }
@@ -53,7 +55,10 @@ internal class SettingsVM : INotifyPropertyChanged {
 	public bool BlurBehindSearch { get; set; }
 	public Hotkey InteractableOverlayHotkey { get; set; }
 
-	internal SettingsVM() {
+	private readonly LocalizationService _localizationService;
+
+	internal SettingsVM(LocalizationService localizationService) {
+		_localizationService = localizationService;
 		LoadSettings();
 	}
 
