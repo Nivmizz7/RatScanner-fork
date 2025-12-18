@@ -1,5 +1,4 @@
 ﻿@using System.Windows.Input;
-@inject LocalizationService Localizer;
 @implements IDisposable;
 
 <MudButton @ref="Button" @onclick="() => StartListening()"
@@ -9,7 +8,7 @@
            Disabled="@_listening">
     <MudStack Spacing="0" AlignItems="AlignItems.Stretch" Justify="Justify.Center">
         @if (string.IsNullOrEmpty(_tmpHotkey.HotkeyString)) {
-            <div>@Localizer["NoneLabel"]</div>
+            <div>None</div>
         } else {
             <MudStack Spacing="1" Row="true" Justify="Justify.SpaceBetween">
                 @foreach (var key in _tmpHotkey.KeyboardKeys) {
